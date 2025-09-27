@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRUM.VIP - Mua Dịch Vụ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #01545e, #16213e, #006572);
+            margin: 0;
+            padding: 10px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Responsive breakpoints */
+        @media (max-width: 1200px) {
+            body {
+                padding: 5px;
+            }
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 1200px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 20px);
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            .app-container {
+                max-width: 100%;
+                height: auto;
+                min-height: calc(100vh - 10px);
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .app-container {
+                max-width: 100%;
+                height: auto;
+                min-height: 100vh;
+            }
+        }
+
+        
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .brand-name .red {
+            color: #ff6b6b;
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            .logo-section {
+                gap: 10px;
+                margin-bottom: 15px;
+            }
+            
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+            
+            .brand-name {
+                font-size: 20px;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .logo-section {
+                gap: 8px;
+                margin-bottom: 10px;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+            
+            .brand-name {
+                font-size: 18px;
+            }
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-tab {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .main-layout {
+            display: flex;
+            flex: 1;
+            min-height: calc(100vh - 200px);
+            gap: 2rem;
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            .main-layout {
+                flex-direction: column;
+                gap: 1rem;
+                min-height: auto;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column;
+                gap: 0.5rem;
+                min-height: auto;
+            }
+        }
+
+        .sidebar {
+            width: 300px;
+            background: #111113;
+            padding: 30px 20px;
+            flex-shrink: 0;
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 100%;
+                padding: 20px 15px;
+                order: 2;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                padding: 10px;
+                order: 1;
+                background: rgba(17, 17, 19, 0.95);
+                backdrop-filter: blur(10px);
+                border-radius: 0;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+        }
+
+        .sidebar-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Mobile responsive - Hide sidebar header */
+        @media (max-width: 768px) {
+            .sidebar-header {
+                display: none;
+            }
+        }
+
+        .menu-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* Mobile responsive - Horizontal menu */
+        @media (max-width: 768px) {
+            .menu-items {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                gap: 5px;
+                overflow-x: auto;
+                padding: 5px 0;
+            }
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            .menu-item {
+                padding: 12px 15px;
+                margin-bottom: 6px;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .menu-item {
+                padding: 8px 12px;
+                margin-bottom: 0;
+                font-size: 12px;
+                flex-direction: column;
+                text-align: center;
+                min-width: 60px;
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.05);
+                transition: all 0.3s ease;
+            }
+            
+            .menu-item:hover {
+                transform: none;
+                background: rgba(102, 126, 234, 0.3);
+            }
+            
+            .menu-item.active {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                transform: none;
+            }
+        }
+
+        .menu-item:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .menu-item.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .menu-text {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Mobile responsive - Icon and text layout */
+        @media (max-width: 768px) {
+            .menu-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 0;
+                margin-bottom: 4px;
+                font-size: 14px;
+            }
+            
+            .menu-text {
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 1.2;
+            }
+        }
+
+        .menu-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #333, transparent);
+            margin: 20px 0;
+        }
+
+        /* Mobile responsive - Hide divider */
+        @media (max-width: 768px) {
+            .menu-divider {
+                display: none;
+            }
+            
+            /* Hide logout button on mobile */
+            .menu-item[data-section="logout"] {
+                display: none;
+            }
+        }
+
+        .main-content {
+            flex: 1;
+            background: #111113;
+            padding: 30px;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 20px 15px;
+                order: 1;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 15px 10px;
+                order: 1;
+            }
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .content-header h1 {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            .content-header h1 {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .content-header h1 {
+                font-size: 20px;
+                letter-spacing: 1px;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            font-size: 14px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .form-group input,
+            .form-group textarea {
+                padding: 10px 12px;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Custom Select Styling */
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            font-size: 14px;
+            color: white;
+            transition: all 0.3s ease;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group select:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Custom Option Styling */
+        .form-group select option {
+            background: #1a1a2e;
+            color: white;
+            padding: 12px 16px;
+            border: none;
+            font-size: 14px;
+        }
+
+        .form-group select option:hover {
+            background: #667eea;
+        }
+
+        .form-group select option:checked {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Custom Select Component */
+        .custom-select-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .custom-select {
+            position: relative;
+            width: 100%;
+        }
+
+        .select-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 48px;
+        }
+
+        .select-trigger:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .select-trigger.active {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .select-value {
+            color: white;
+            font-size: 14px;
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .select-arrow {
+            color: white;
+            font-size: 12px;
+            transition: transform 0.3s ease;
+            margin-left: 8px;
+        }
+
+        .select-trigger.active .select-arrow {
+            transform: rotate(180deg);
+        }
+
+        .select-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #1a1a2e;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            margin-top: 4px;
+        }
+
+        .select-options.show {
+            display: block;
+        }
+
+        .select-option {
+            padding: 12px 16px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .select-option:last-child {
+            border-bottom: none;
+        }
+
+        .select-option:hover {
+            background: rgba(102, 126, 234, 0.3);
+        }
+
+        .select-option.selected {
+            background: #667eea;
+            color: white;
+        }
+
+        .select-option .option-rate {
+            color: #ffd700;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .select-option .option-details {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 4px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        button {
+            background: #8394df;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 6px;
+        }
+        @media (max-width: 1024px) {
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 768px) {
+            button {
+                padding: 12px 16px;
+                font-size: 14px;
+                width: 50%;
+                margin-bottom: 10px;
+            }
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .danhsachdonhang {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .danhsachdonhang-header {
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .danhsachdonhang-header h1 {
+            font-size: 24px;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            .danhsachdonhang-header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+            
+            .danhsachdonhang-header h1 {
+                font-size: 20px;
+                text-align: center;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .danhsachdonhang-header {
+                padding: 10px 15px;
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+            }
+            
+            .danhsachdonhang-header h1 {
+                font-size: 18px;
+                text-align: center;
+            }
+        }
+
+        #refreshOrdersBtn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        #refreshOrdersBtn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            color: #000000;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            th, td {
+                padding: 10px 8px;
+                font-size: 12px;
+            }
+            
+            th {
+                font-size: 10px;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            table {
+                font-size: 12px;
+            }
+            
+            th, td {
+                padding: 8px 4px;
+                font-size: 11px;
+            }
+            
+            th {
+                font-size: 9px;
+                letter-spacing: 0.5px;
+            }
+            
+            /* Hide less important columns on mobile */
+            th:nth-child(7), td:nth-child(7), /* Time column */
+            th:nth-child(8), td:nth-child(8) { /* Notes column */
+                display: none;
+            }
+        }
+
+        /* Extra small mobile */
+        @media (max-width: 480px) {
+            th, td {
+                padding: 6px 2px;
+                font-size: 10px;
+            }
+            
+            th {
+                font-size: 8px;
+            }
+            
+            /* Hide more columns on very small screens */
+            th:nth-child(5), td:nth-child(5), /* Price column */
+            th:nth-child(6), td:nth-child(6) { /* Status column */
+                display: none;
+            }
+        }
+
+        #timeRemaining {
+            background: rgba(255, 193, 7, 0.1);
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            #timeRemaining {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            #timeRemaining {
+                padding: 4px 8px;
+                font-size: 11px;
+                text-align: center;
+            }
+        }
+        .search-kenh {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-kenh button {
+            width: 150px;
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 1024px) {
+            .search-kenh {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-kenh button {
+                width: 100%;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .search-kenh {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            
+            .search-kenh button {
+                width: 100%;
+            }
+        }
+
+        </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            
+            <div class="nav-tabs">
+            </div>
+        </div>
+        <div class="logo-section">
+            <img src="file:///C:/Users/tuant/Downloads/Downloads/BREAKDEV%20RED_files/breakdev_red.f2cc7df3.png" alt="">
+        </div>
+        
+        <div class="main-layout">
+                <div class="sidebar">
+                <div class="sidebar-header">
+                </div>
+                <div class="sidebar-content">
+                    <ul class="menu-items">
+                        <li class="menu-item" data-section="facebook" data-platform="facebook">
+                            <span class="menu-text">Facebook</span>
+                        </li>
+                        <li class="menu-item" data-section="tiktok" data-platform="tiktok">
+                            <span class="menu-text">Tiktok</span>
+                        </li>
+                        <li class="menu-item" data-section="youtube" data-platform="youtube">
+                            <span class="menu-text">Youtube</span>
+                        </li>
+                        <li class="menu-item" data-section="instagram" data-platform="instagram">
+                            <span class="menu-text">Instagram</span>
+                        </li>
+                        
+                        <div class="menu-divider"></div>
+                        
+                        <li class="menu-item" data-section="logout">
+                            <span class="menu-text">Logout</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    <div class="main-content">
+        <div class="content-header">
+            <h1>Mua Dịch vụ</h1>
+        </div>
+        <div class="content-body">
+            <p>Thêm mới</p>
+            <div class="form-group">
+                <label for="name">Tìm kiếm</label>
+                <div class="search-kenh">
+                    <input type="text" id="Iddichvu" name="Iddichvu" placeholder="Nhập ID kênh dịch vụ">
+                <button type="submit">Tìm kiếm</button>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="channel">Kênh</label>
+                <div class="custom-select-container">
+                    <div class="custom-select" id="customSelect">
+                        <div class="select-trigger">
+                            <span class="select-value">Chọn dịch vụ...</span>
+                        </div>
+                        <div class="select-options" id="selectOptions">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <select id="channel" name="channel" style="display: none;">
+                        <option value="">Chọn dịch vụ...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="object_id">Object ID/Link</label>
+                <input type="text" id="object_id" name="object_id" placeholder="Nhập ID/Link cần mua dịch vụ" required>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Số lượng</label>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <input type="number" id="quantity" name="quantity" placeholder="Nhập số lượng" required style="flex: 1;">
+                    <button type="button" id="limitToggle" style="padding: 8px 16px; font-size: 12px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; white-space: nowrap;">
+                        Giới hạn 100: TẮT
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="list_comment">Nội dung comment (tùy chọn)</label>
+                <textarea id="list_comment" name="list_comment" placeholder="Nhập nội dung comment, mỗi dòng là một nội dung khác nhau"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="notes">Ghi chú (tùy chọn)</label>
+                <input type="text" id="notes" name="notes" placeholder="Nhập ghi chú cho đơn hàng">
+            </div>
+            
+            <!-- Các trường tùy chọn cho các loại dịch vụ đặc biệt -->
+            <div class="form-group">
+                <label for="like_type">Loại Like (tùy chọn)</label>
+                <select id="like_type" name="like_type">
+                    <option value="">Chọn loại like</option>
+                    <option value="1">Like bài viết</option>
+                    <option value="2">Like album</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="speed">Tốc độ (tùy chọn)</label>
+                <select id="speed" name="speed">
+                    <option value="">Chọn tốc độ</option>
+                    <option value="0">Ổn định</option>
+                    <option value="1">Nhanh</option>
+                    <option value="2">Chậm</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="viplike_type">Loại VIP Like (tùy chọn)</label>
+                <select id="viplike_type" name="viplike_type">
+                    <option value="">Chọn loại VIP like</option>
+                    <option value="PROFILE">Trang cá nhân</option>
+                    <option value="PAGE">Trang fanpage</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="viplike_reaction">Loại cảm xúc VIP like (tùy chọn)</label>
+                <select id="viplike_reaction" name="viplike_reaction">
+                    <option value="">Chọn cảm xúc VIP like</option>
+                    <option value="LIKE">LIKE</option>
+                    <option value="LIKE+LOVE">LIKE+LOVE</option>
+                    <option value="LIKE+HAHA">LIKE+HAHA</option>
+                    <option value="LIKE+WOW">LIKE+WOW</option>
+                    <option value="LIKE+SAD">LIKE+SAD</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="reaction">Loại cảm xúc buff like (tùy chọn)</label>
+                <select id="reaction" name="reaction">
+                    <option value="">Chọn cảm xúc buff like</option>
+                    <option value="LIKE">LIKE</option>
+                    <option value="LOVE">LOVE</option>
+                    <option value="HAHA">HAHA</option>
+                    <option value="WOW">WOW</option>
+                    <option value="SAD">SAD</option>
+                    <option value="ANGRY">ANGRY</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="timelive">Thời gian duy trì mắt xem live (phút)</label>
+                <input type="number" id="timelive" name="timelive" placeholder="Nhập thời gian (phút)">
+            </div>
+            
+            <div class="form-group">
+                <label for="timelivev2">Thời gian duy trì mắt xem live (giờ)</label>
+                <input type="number" id="timelivev2" name="timelivev2" placeholder="Nhập thời gian (giờ)">
+            </div>
+            
+            <div class="form-group">
+                <label for="timevip">Thời gian duy trì gói VIP (ngày)</label>
+                <input type="number" id="timevip" name="timevip" placeholder="Nhập thời gian (ngày)">
+            </div>
+            
+            <div class="form-group">
+                <label for="posts">Số bài viết tối đa/ngày</label>
+                <input type="number" id="posts" name="posts" placeholder="Nhập số bài viết/ngày">
+            </div>
+            
+            <div class="form-group">
+                <label for="max_posts">Số bài viết tối đa trong thời gian sử dụng</label>
+                <input type="number" id="max_posts" name="max_posts" placeholder="Nhập số bài viết tối đa">
+            </div>
+            
+            <button type="button" id="createOrderBtn">Tạo đơn mới</button>
+            <button type="button" id="showAllServicesBtn">Hiển thị tất cả</button>
+            <div id="orderResult" style="margin-top: 20px; padding: 10px; border-radius: 5px; display: none;"></div>
+
+        </div>
+        <div class="danhsachdonhang">
+        <div class="danhsachdonhang-header">
+            <h1>Danh sách đơn hàng</h1>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div id="timeRemaining" style="color: #ffc107; font-weight: bold; font-size: 14px;">
+                     Dữ liệu sẽ được xóa sau: <span id="countdown">24:00:00</span>
+                </div>
+                <button id="refreshOrdersBtn" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                     Làm mới
+                </button>
+            </div>
+        </div>
+            <div class="danhsachdonhang-content">
+                <table id="ordersTable" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                        <tr style="background-color: #f8f9fa;">
+                            <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">ID</th>
+                            <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">Object ID</th>
+                            <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">Số lượng</th>
+                            <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">Đã chạy</th>
+                            <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">Giá</th>
+                            <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">Trạng thái</th>
+                            <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">Thời gian</th>
+                            <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <tr>
+                            <td colspan="9" style="text-align: center; padding: 20px; color: #6c757d;">
+                                Chưa có đơn hàng nào. Tạo đơn mới để xem danh sách.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+   
+
+    <script>
+        const API_KEY = 'f2f9dbe25fb19b6e882aa07fc8fc00ea';
+        let orderIds = [];
+        let startTime = Date.now();
+        let refreshInterval;
+        let allServices = [];
+        let currentPlatform = null;
+        let isLimitEnabled = false;
+
+        async function fetchServices() {
+            const channelSelect = document.getElementById('channel');
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/services', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    allServices = data.data;
+                    filterServicesByPlatform(currentPlatform);
+                    console.log('Đã tải thành công', data.data.length, 'dịch vụ');
+                } else {
+                    alert('Lỗi: ' + data.msg);
+                }
+            } catch (error) {
+                console.error('Lỗi khi fetch dữ liệu:', error);
+                alert('Có lỗi xảy ra khi tải dữ liệu: ' + error.message);
+            }
+        }
+
+        function onChannelChange() {
+            const channelSelect = document.getElementById('channel');
+            const selectedOption = channelSelect.options[channelSelect.selectedIndex];
+            
+            if (selectedOption.value) {
+                const min = selectedOption.getAttribute('data-min');
+                const max = selectedOption.getAttribute('data-max');
+                const rate = selectedOption.getAttribute('data-rate');
+                const category = selectedOption.getAttribute('data-category');
+                
+                console.log('Service được chọn:', {
+                    id: selectedOption.value,
+                    name: selectedOption.textContent,
+                    min: min,
+                    max: max,
+                    rate: rate,
+                    category: category
+                });
+                
+                document.getElementById('quantity').placeholder = `Số lượng (Min: ${min}, Max: ${max})`;
+            }
+        }
+
+        function filterServicesByPlatform(platform) {
+            const channelSelect = document.getElementById('channel');
+            const selectOptions = document.getElementById('selectOptions');
+            const selectValue = document.querySelector('.select-value');
+            
+            console.log('=== DEBUG FILTER ===');
+            console.log('Platform:', platform);
+            console.log('All services count:', allServices.length);
+            console.log('Current platform:', currentPlatform);
+            
+            channelSelect.innerHTML = '<option value="">Chọn dịch vụ...</option>';
+            selectOptions.innerHTML = '';
+            selectValue.textContent = 'Chọn dịch vụ...';
+            
+            if (!platform || allServices.length === 0) {
+                const validServices = allServices.filter(service => 
+                    (service.disabled === false || service.disabled === "0") && 
+                    service.status === true && 
+                    service.cancel === true
+                );
+                
+                console.log('Valid services count (no platform):', validServices.length);
+                console.log('First few valid services:', validServices.slice(0, 3));
+                
+                validServices.forEach(service => {
+                    const option = document.createElement('option');
+                    option.value = service.service;
+                    option.textContent = `${service.name} (Rate: ${service.rate})`;
+                    option.setAttribute('data-min', service.min);
+                    option.setAttribute('data-max', service.max);
+                    option.setAttribute('data-rate', service.rate);
+                    option.setAttribute('data-category', service.category);
+                    channelSelect.appendChild(option);
+                    
+                    const customOption = document.createElement('div');
+                    customOption.className = 'select-option';
+                    customOption.setAttribute('data-value', service.service);
+                    customOption.innerHTML = `
+                        <div>${service.name}</div>
+                        <div class="option-details">
+                            Rate: <span class="option-rate">${service.rate}</span> | 
+                            Min: ${service.min} | Max: ${service.max}
+                        </div>
+                    `;
+                    customOption.setAttribute('data-min', service.min);
+                    customOption.setAttribute('data-max', service.max);
+                    customOption.setAttribute('data-rate', service.rate);
+                    customOption.setAttribute('data-category', service.category);
+                    selectOptions.appendChild(customOption);
+                });
+                return;
+            }
+            
+            const filteredServices = allServices.filter(service => {
+                const isValidService = (service.disabled === false || service.disabled === "0") && 
+                                     service.status === true && 
+                                     service.cancel === true;
+                
+                if (!isValidService) {
+                    return false;
+                }
+                
+                const serviceName = service.name.toLowerCase();
+                const serviceCategory = service.category.toLowerCase();
+                
+                let matchesPlatform = false;
+                switch(platform) {
+                    case 'facebook':
+                        matchesPlatform = serviceName.includes('facebook') || 
+                                        serviceCategory.includes('facebook') ||
+                                        serviceName.includes('fb');
+                        break;
+                    case 'tiktok':
+                        matchesPlatform = serviceName.includes('tiktok') || 
+                                        serviceCategory.includes('tiktok');
+                        break;
+                    case 'youtube':
+                        matchesPlatform = serviceName.includes('youtube') || 
+                                        serviceCategory.includes('youtube') ||
+                                        serviceName.includes('yt');
+                        break;
+                    case 'instagram':
+                        matchesPlatform = serviceName.includes('instagram') || 
+                                        serviceCategory.includes('instagram') ||
+                                        serviceName.includes('ig');
+                        break;
+                    default:
+                        matchesPlatform = true;
+                }
+                
+                return matchesPlatform;
+            });
+            
+            console.log('Filtered services count:', filteredServices.length);
+            console.log('Platform:', platform);
+            console.log('First few filtered services:', filteredServices.slice(0, 3));
+            
+            if (allServices.length > 0) {
+                console.log('Sample service names:', allServices.slice(0, 3).map(s => s.name));
+                console.log('Sample service categories:', allServices.slice(0, 3).map(s => s.category));
+            }
+            
+            filteredServices.forEach(service => {
+                const option = document.createElement('option');
+                option.value = service.service;
+                option.textContent = `${service.name} (Rate: ${service.rate})`;
+                option.setAttribute('data-min', service.min);
+                option.setAttribute('data-max', service.max);
+                option.setAttribute('data-rate', service.rate);
+                option.setAttribute('data-category', service.category);
+                channelSelect.appendChild(option);
+                
+                const customOption = document.createElement('div');
+                customOption.className = 'select-option';
+                customOption.setAttribute('data-value', service.service);
+                customOption.innerHTML = `
+                    <div>${service.name}</div>
+                    <div class="option-details">
+                        Rate: <span class="option-rate">${service.rate}</span> | 
+                        Min: ${service.min} | Max: ${service.max}
+                    </div>
+                `;
+                customOption.setAttribute('data-min', service.min);
+                customOption.setAttribute('data-max', service.max);
+                customOption.setAttribute('data-rate', service.rate);
+                customOption.setAttribute('data-category', service.category);
+                selectOptions.appendChild(customOption);
+            });
+            
+            console.log(`Đã filter ${filteredServices.length} dịch vụ hợp lệ cho platform: ${platform}`);
+            console.log(`Điều kiện: disabled=false, status=true, cancel=true`);
+        }
+
+        async function fetchOrderStatus() {
+            if (orderIds.length === 0) {
+                console.log('Chưa có đơn hàng nào');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/api/order/status', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        ids: orderIds.join(',')
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    displayOrders(data.data);
+                } else {
+                    console.error('Lỗi lấy trạng thái đơn:', data.msg);
+                    alert('Lỗi lấy trạng thái đơn: ' + data.msg);
+                }
+            } catch (error) {
+                console.error('Lỗi khi fetch trạng thái đơn:', error);
+                alert('Có lỗi xảy ra khi lấy trạng thái đơn: ' + error.message);
+            }
+        }
+
+        async function fetchAllOrders() {
+            try {
+                const response = await fetch('http://localhost:3000/api/orders/all', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    displayOrders(data.data);
+                    console.log('Đã tải', data.data.length, 'đơn hàng');
+                } else {
+                    console.error('Lỗi lấy tất cả đơn hàng:', data.msg);
+                }
+            } catch (error) {
+                console.error('Lỗi khi fetch tất cả đơn hàng:', error);
+            }
+        }
+
+        function checkAndClearData() {
+            const currentTime = Date.now();
+            const timeDiff = currentTime - startTime;
+            const hours24 = 24 * 60 * 60 * 1000;
+
+            if (timeDiff >= hours24) {
+                orderIds = [];
+                startTime = Date.now();
+                
+                const tbody = document.getElementById('ordersTableBody');
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="9" style="text-align: center; padding: 20px; color: #6c757d;">
+                            Dữ liệu đã được xóa sau 24 giờ. Tạo đơn mới để xem danh sách.
+                        </td>
+                    </tr>
+                `;
+                
+                console.log('Đã xóa tất cả dữ liệu sau 24 giờ');
+            }
+        }
+
+        function startAutoRefresh() {
+            refreshInterval = setInterval(() => {
+                fetchAllOrders();
+                checkAndClearData();
+            }, 30000);
+            
+            setInterval(() => {
+                updateCountdown();
+            }, 1000);
+            
+            console.log('Đã bắt đầu auto-refresh mỗi 30 giây');
+        }
+
+        function stopAutoRefresh() {
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+                refreshInterval = null;
+                console.log('Đã dừng auto-refresh');
+            }
+        }
+
+        function updateCountdown() {
+            const currentTime = Date.now();
+            const timeDiff = currentTime - startTime;
+            const hours24 = 24 * 60 * 60 * 1000;
+            const remainingTime = hours24 - timeDiff;
+            
+            if (remainingTime <= 0) {
+                document.getElementById('countdown').textContent = '00:00:00';
+                return;
+            }
+            
+            const hours = Math.floor(remainingTime / (1000 * 60 * 60));
+            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+            
+            const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('countdown').textContent = timeString;
+        }
+
+        function displayOrders(orders) {
+            const tbody = document.getElementById('ordersTableBody');
+            
+            if (orders.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="9" style="text-align: center; padding: 20px; color: #6c757d;">
+                            Chưa có đơn hàng nào. Tạo đơn mới để xem danh sách.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = orders.map(order => {
+                const statusColor = getStatusColor(order.status);
+                const statusText = getStatusText(order.status);
+                
+                return `
+                    <tr style="border-bottom: 1px solid #dee2e6;">
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">${order.id}</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">${order.object_id}</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">${order.quantity}</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">${order.count_success}</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">${order.price} VND</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">
+                            <span style="padding: 4px 8px; border-radius: 4px; color: white; background-color: ${statusColor};">
+                                ${statusText}
+                            </span>
+                        </td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">${order.time}</td>
+                        <td style="border: 1px solid #dee2e6; padding: 12px;">${order.notes || '-'}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function getStatusColor(status) {
+            switch(status) {
+                case 'completed': return '#28a745';
+                case 'processing': return '#ffc107';
+                case 'pending': return '#17a2b8';
+                case 'cancelled': return '#dc3545';
+                case 'partial': return '#fd7e14';
+                default: return '#6c757d';
+            }
+        }
+
+        function getStatusText(status) {
+            switch(status) {
+                case 'completed': return 'Hoàn thành';
+                case 'processing': return 'Đang xử lý';
+                case 'pending': return 'Chờ xử lý';
+                case 'cancelled': return 'Đã hủy';
+                case 'partial': return 'Một phần';
+                default: return status;
+            }
+        }
+
+        async function createOrder() {
+            const channelSelect = document.getElementById('channel');
+            const objectId = document.getElementById('object_id').value;
+            const quantity = document.getElementById('quantity').value;
+            
+            if (!channelSelect.value) {
+                alert('Vui lòng chọn kênh dịch vụ');
+                return;
+            }
+            
+            if (!objectId) {
+                alert('Vui lòng nhập Object ID/Link');
+                return;
+            }
+            
+            if (!quantity) {
+                alert('Vui lòng nhập số lượng');
+                return;
+            }
+
+            const orderData = {
+                service_id: channelSelect.value,
+                object_id: objectId,
+                quantity: parseInt(quantity),
+                list_comment: document.getElementById('list_comment').value || undefined,
+                notes: document.getElementById('notes').value || undefined,
+                like_type: document.getElementById('like_type').value || undefined,
+                speed: document.getElementById('speed').value || undefined,
+                viplike_type: document.getElementById('viplike_type').value || undefined,
+                viplike_reaction: document.getElementById('viplike_reaction').value || undefined,
+                reaction: document.getElementById('reaction').value || undefined,
+                timelive: document.getElementById('timelive').value || undefined,
+                timelivev2: document.getElementById('timelivev2').value || undefined,
+                timevip: document.getElementById('timevip').value || undefined,
+                posts: document.getElementById('posts').value || undefined,
+                max_posts: document.getElementById('max_posts').value || undefined
+            };
+
+            Object.keys(orderData).forEach(key => {
+                if (orderData[key] === undefined || orderData[key] === '') {
+                    delete orderData[key];
+                }
+            });
+
+            try {
+                const response = await fetch('http://localhost:3000/api/order/create', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(orderData)
+                });
+
+                const result = await response.json();
+                const resultDiv = document.getElementById('orderResult');
+                
+                if (result.success) {
+                    orderIds.push(result.data.id);
+                    
+                    resultDiv.innerHTML = `
+                        <div style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 15px; border-radius: 5px;">
+                            <h4>Tạo đơn thành công!</h4>
+                            
+                        </div>
+                    `;
+                    resultDiv.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        fetchOrderStatus();
+                    }, 1000);
+                    
+                    document.getElementById('object_id').value = '';
+                    document.getElementById('quantity').value = '';
+                    document.getElementById('list_comment').value = '';
+                    document.getElementById('notes').value = '';
+                    ['like_type', 'speed', 'viplike_type', 'viplike_reaction', 'reaction'].forEach(id => {
+                        document.getElementById(id).selectedIndex = 0;
+                    });
+                    ['timelive', 'timelivev2', 'timevip', 'posts', 'max_posts'].forEach(id => {
+                        document.getElementById(id).value = '';
+                    });
+                } else {
+                    resultDiv.innerHTML = `
+                        <div style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 15px; border-radius: 5px;">
+                            <h4>❌ Lỗi tạo đơn!</h4>
+                            <p><strong>Lỗi:</strong> ${result.msg || 'Không xác định'}</p>
+                        </div>
+                    `;
+                    resultDiv.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Lỗi khi tạo đơn:', error);
+                const resultDiv = document.getElementById('orderResult');
+                resultDiv.innerHTML = `
+                    <div style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 15px; border-radius: 5px;">
+                        <h4>❌ Lỗi kết nối!</h4>
+                        <p><strong>Lỗi:</strong> ${error.message}</p>
+                    </div>
+                `;
+                resultDiv.style.display = 'block';
+            }
+        }
+
+        function handleSectionSelection(section) {
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            const selectedItem = document.querySelector(`[data-section="${section}"]`);
+            if (selectedItem) {
+                selectedItem.classList.add('active');
+            }
+            
+            const platform = selectedItem ? selectedItem.getAttribute('data-platform') : null;
+            currentPlatform = platform;
+            
+            if (allServices.length > 0) {
+                filterServicesByPlatform(platform);
+            }
+            
+            updateContentForSection(section);
+        }
+
+        function updateContentForSection(section) {
+            const contentHeader = document.querySelector('.content-header h1');
+            const sectionNames = {
+                'facebook': 'FACEBOOK SERVICES',
+                'tiktok': 'TIKTOK SERVICES',
+                'youtube': 'YOUTUBE SERVICES',
+                'instagram': 'INSTAGRAM SERVICES',
+                'account': 'Account Management',
+                'company': 'Company Information',
+                'discord': 'Discord Integration',
+                'inventory': 'Inventory Management',
+                'buy': 'Buy Services',
+                'cart': 'Shopping Cart',
+                'orders': 'Order Management',
+                'logout': 'Logout'
+            };
+            
+            if (contentHeader) {
+                contentHeader.textContent = sectionNames[section] || 'BUY SERVICES';
+            }
+        }
+
+        function initCustomSelect() {
+            const customSelect = document.getElementById('customSelect');
+            const selectTrigger = document.querySelector('.select-trigger');
+            const selectOptions = document.getElementById('selectOptions');
+            const selectValue = document.querySelector('.select-value');
+            const channelSelect = document.getElementById('channel');
+
+            selectTrigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                customSelect.classList.toggle('active');
+                selectOptions.classList.toggle('show');
+            });
+
+            selectOptions.addEventListener('click', function(e) {
+                const option = e.target.closest('.select-option');
+                if (option) {
+                    const value = option.getAttribute('data-value');
+                    const text = option.querySelector('div').textContent;
+                    
+                    selectValue.textContent = text;
+                    channelSelect.value = value;
+                    
+                    selectOptions.querySelectorAll('.select-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    option.classList.add('selected');
+                    
+                    customSelect.classList.remove('active');
+                    selectOptions.classList.remove('show');
+                    
+                    channelSelect.dispatchEvent(new Event('change'));
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!customSelect.contains(e.target)) {
+                    customSelect.classList.remove('active');
+                    selectOptions.classList.remove('show');
+                }
+            });
+        }
+
+        function toggleLimit() {
+            isLimitEnabled = !isLimitEnabled;
+            const limitToggle = document.getElementById('limitToggle');
+            const quantityInput = document.getElementById('quantity');
+            
+            if (isLimitEnabled) {
+                limitToggle.textContent = 'Giới hạn 100: BẬT';
+                limitToggle.style.background = '#28a745';
+                quantityInput.max = 100;
+                quantityInput.placeholder = 'Nhập số lượng (tối đa 100)';
+            
+            } else {
+                limitToggle.textContent = 'Giới hạn 100: TẮT';
+                limitToggle.style.background = '#dc3545';
+                quantityInput.removeAttribute('max');
+                quantityInput.placeholder = 'Nhập số lượng';
+            }
+        }
+
+        function validateQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            const value = parseInt(quantityInput.value);
+            
+            if (isLimitEnabled && value > 100) {
+                quantityInput.value = 100;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const channelSelect = document.getElementById('channel');
+            const createOrderBtn = document.getElementById('createOrderBtn');
+            const refreshOrdersBtn = document.getElementById('refreshOrdersBtn');
+            const showAllServicesBtn = document.getElementById('showAllServicesBtn');
+            const limitToggle = document.getElementById('limitToggle');
+            const quantityInput = document.getElementById('quantity');
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            initCustomSelect();
+            fetchServices();
+            fetchAllOrders();
+            startAutoRefresh();
+            
+            channelSelect.addEventListener('change', onChannelChange);
+            createOrderBtn.addEventListener('click', createOrder);
+            refreshOrdersBtn.addEventListener('click', fetchAllOrders);
+            limitToggle.addEventListener('click', toggleLimit);
+            quantityInput.addEventListener('input', validateQuantity);
+            
+            showAllServicesBtn.addEventListener('click', function() {
+                console.log('=== SHOW ALL SERVICES ===');
+                currentPlatform = null;
+                filterServicesByPlatform(null);
+            });
+            
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const section = this.getAttribute('data-section');
+                    handleSectionSelection(section);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
