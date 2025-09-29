@@ -837,8 +837,258 @@
                 gap: 8px;
             }
             
-            .search-kenh button {
-                width: 100%;
+        .search-kenh button {
+            width: 100%;
+        }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-container {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .modal-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .modal-form-label {
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-form-input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .modal-form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .modal-form-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .modal-form-select {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 16px;
+            padding-right: 50px;
+            cursor: pointer;
+        }
+
+        .modal-form-select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .modal-form-select option {
+            background: #1a1a2e;
+            color: white;
+            padding: 10px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .modal-btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .modal-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .modal-btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .modal-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .modal-overlay {
+                padding: 10px;
+            }
+            
+            .modal-container {
+                padding: 20px;
+                max-height: 95vh;
+            }
+            
+            .modal-title {
+                font-size: 20px;
+            }
+            
+            .modal-buttons {
+                flex-direction: column;
+            }
+            
+            .modal-btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-container {
+                padding: 15px;
+                border-radius: 15px;
+            }
+            
+            .modal-title {
+                font-size: 18px;
+            }
+            
+            .modal-form-input,
+            .modal-form-select {
+                padding: 12px 15px;
+                font-size: 16px; /* Prevents zoom on iOS */
             }
         }
 
@@ -876,6 +1126,13 @@
                         
                         <div class="menu-divider"></div>
                         
+                        <!-- Admin menu - only show for admin users -->
+                        <li class="menu-item admin-only" data-section="customers" style="display: none;">
+                            <span class="menu-text">Quản lý khách hàng</span>
+                        </li>
+                        
+                        <div class="menu-divider admin-only" style="display: none;"></div>
+                        
                         <li class="menu-item" data-section="logout">
                             <span class="menu-text">Logout</span>
                         </li>
@@ -886,7 +1143,7 @@
         <div class="content-header">
             <h1>Mua Dịch vụ</h1>
         </div>
-        <div class="content-body">
+        <div class="content-body" id="mainContent">
             <p>Thêm mới</p>
             <div class="form-group">
                 <label for="name">Tìm kiếm</label>
@@ -1053,6 +1310,74 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        
+        <!-- Customer Management Section (Admin Only) -->
+        <div class="customer-management" id="customerManagement" style="display: none;">
+            <div class="danhsachdonhang">
+                <div class="danhsachdonhang-header">
+                    <h1>Quản lý khách hàng</h1>
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <button id="addCustomerBtn" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            Thêm khách hàng
+                        </button>
+                        <button id="refreshCustomersBtn" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            Làm mới
+                        </button>
+                    </div>
+                </div>
+                <div class="danhsachdonhang-content">
+                    <table id="customersTable" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                        <thead>
+                            <tr style="background-color: #f8f9fa;">
+                                <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">Username</th>
+                                <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">Role</th>
+                                <th style="border: 1px solid #dee2e6; padding: 12px; text-align: left;">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customersTableBody">
+                            <tr>
+                                <td colspan="3" style="text-align: center; padding: 20px; color: #6c757d;">
+                                    Đang tải danh sách khách hàng...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Customer Modal -->
+    <div class="modal-overlay" id="addCustomerModal">
+        <div class="modal-container">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Thêm Khách Hàng</h2>
+                <p class="modal-subtitle">Tạo tài khoản mới cho hệ thống</p>
+            </div>
+            <form class="modal-form" id="addCustomerForm">
+                <div class="modal-form-group">
+                    <label class="modal-form-label" for="modalUsername">Username</label>
+                    <input type="text" class="modal-form-input" id="modalUsername" name="username" placeholder="Nhập username" required>
+                </div>
+                <div class="modal-form-group">
+                    <label class="modal-form-label" for="modalPassword">Password</label>
+                    <input type="password" class="modal-form-input" id="modalPassword" name="password" placeholder="Nhập password" required>
+                </div>
+                <div class="modal-form-group">
+                    <label class="modal-form-label" for="modalRole">Role</label>
+                    <select class="modal-form-select" id="modalRole" name="role" required>
+                        <option value="">Chọn role</option>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="modal-btn modal-btn-secondary" id="cancelAddCustomer">Hủy</button>
+                    <button type="submit" class="modal-btn modal-btn-primary">Thêm Khách Hàng</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -1551,11 +1876,15 @@
 
         function updateContentForSection(section) {
             const contentHeader = document.querySelector('.content-header h1');
+            const mainContent = document.getElementById('mainContent');
+            const customerManagement = document.getElementById('customerManagement');
+            
             const sectionNames = {
                 'facebook': 'FACEBOOK SERVICES',
                 'tiktok': 'TIKTOK SERVICES',
                 'youtube': 'YOUTUBE SERVICES',
                 'instagram': 'INSTAGRAM SERVICES',
+                'customers': 'QUẢN LÝ KHÁCH HÀNG',
                 'account': 'Account Management',
                 'company': 'Company Information',
                 'discord': 'Discord Integration',
@@ -1569,6 +1898,158 @@
             if (contentHeader) {
                 contentHeader.textContent = sectionNames[section] || 'BUY SERVICES';
             }
+            
+            // Show/hide content based on section
+            if (section === 'customers') {
+                mainContent.style.display = 'none';
+                customerManagement.style.display = 'block';
+                loadCustomers();
+            } else {
+                mainContent.style.display = 'block';
+                customerManagement.style.display = 'none';
+            }
+        }
+
+        // Customer management functions
+        async function loadCustomers() {
+            try {
+                const response = await fetch('/api/customers', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    displayCustomers(result.customers);
+                } else {
+                    console.error('Error loading customers:', result.message);
+                }
+            } catch (error) {
+                console.error('Error loading customers:', error);
+            }
+        }
+
+        function displayCustomers(customers) {
+            const tbody = document.getElementById('customersTableBody');
+            
+            if (customers.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="3" style="text-align: center; padding: 20px; color: #6c757d;">
+                            Chưa có khách hàng nào.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = customers.map(customer => `
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="border: 1px solid #dee2e6; padding: 12px;">${customer.username}</td>
+                    <td style="border: 1px solid #dee2e6; padding: 12px;">
+                        <span style="padding: 4px 8px; border-radius: 4px; color: white; background-color: ${customer.role === 'admin' ? '#dc3545' : '#28a745'};">
+                            ${customer.role === 'admin' ? 'Admin' : 'User'}
+                        </span>
+                    </td>
+                    <td style="border: 1px solid #dee2e6; padding: 12px;">
+                        ${customer.role !== 'admin' ? `
+                            <button onclick="deleteCustomer('${customer.username}')" style="padding: 5px 10px; background-color: #dc3545; color: white; border: none; border-radius: 3px; cursor: pointer; margin-right: 5px;">
+                                Xóa
+                            </button>
+                        ` : '<span style="color: #6c757d;">Không thể xóa admin</span>'}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function deleteCustomer(username) {
+            if (!confirm(`Bạn có chắc chắn muốn xóa khách hàng "${username}"?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/customers/delete', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('Xóa khách hàng thành công!');
+                    loadCustomers();
+                } else {
+                    alert('Lỗi: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error deleting customer:', error);
+                alert('Lỗi khi xóa khách hàng!');
+            }
+        }
+
+        function showAddCustomerModal() {
+            const modal = document.getElementById('addCustomerModal');
+            modal.classList.add('show');
+            
+            // Reset form
+            document.getElementById('addCustomerForm').reset();
+            
+            // Focus on first input
+            setTimeout(() => {
+                document.getElementById('modalUsername').focus();
+            }, 100);
+        }
+
+        function hideAddCustomerModal() {
+            const modal = document.getElementById('addCustomerModal');
+            modal.classList.remove('show');
+        }
+
+        async function addCustomer(username, password, role) {
+            try {
+                const response = await fetch('/api/customers/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password, role })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('Thêm khách hàng thành công!');
+                    hideAddCustomerModal();
+                    loadCustomers();
+                } else {
+                    alert('Lỗi: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error adding customer:', error);
+                alert('Lỗi khi thêm khách hàng!');
+            }
+        }
+
+        function handleAddCustomerForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const username = formData.get('username');
+            const password = formData.get('password');
+            const role = formData.get('role');
+            
+            if (!username || !password || !role) {
+                alert('Vui lòng điền đầy đủ thông tin!');
+                return;
+            }
+            
+            addCustomer(username, password, role);
         }
 
         function initCustomSelect() {
@@ -1641,7 +2122,51 @@
             }
         }
 
+        // Check authentication
+        function checkAuth() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const user = localStorage.getItem('user');
+            
+            if (!isLoggedIn || !user) {
+                window.location.href = 'login.html';
+                return false;
+            }
+            
+            // Check if user is admin
+            const userData = JSON.parse(user);
+            if (userData.role === 'admin') {
+                document.querySelectorAll('.admin-only').forEach(element => {
+                    element.style.display = 'block';
+                });
+            }
+            
+            return true;
+        }
+
+        // Logout function
+        async function logout() {
+            try {
+                await fetch('/api/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+            
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            // Check authentication first
+            if (!checkAuth()) {
+                return;
+            }
+
             const channelSelect = document.getElementById('channel');
             const createOrderBtn = document.getElementById('createOrderBtn');
             const refreshOrdersBtn = document.getElementById('refreshOrdersBtn');
@@ -1649,6 +2174,12 @@
             const limitToggle = document.getElementById('limitToggle');
             const quantityInput = document.getElementById('quantity');
             const menuItems = document.querySelectorAll('.menu-item');
+            const addCustomerBtn = document.getElementById('addCustomerBtn');
+            const refreshCustomersBtn = document.getElementById('refreshCustomersBtn');
+            const addCustomerForm = document.getElementById('addCustomerForm');
+            const closeModal = document.getElementById('closeModal');
+            const cancelAddCustomer = document.getElementById('cancelAddCustomer');
+            const addCustomerModal = document.getElementById('addCustomerModal');
             
             initCustomSelect();
             fetchServices();
@@ -1661,6 +2192,41 @@
             limitToggle.addEventListener('click', toggleLimit);
             quantityInput.addEventListener('input', validateQuantity);
             
+            // Customer management event listeners
+            if (addCustomerBtn) {
+                addCustomerBtn.addEventListener('click', showAddCustomerModal);
+            }
+            if (refreshCustomersBtn) {
+                refreshCustomersBtn.addEventListener('click', loadCustomers);
+            }
+            
+            // Modal event listeners
+            if (addCustomerForm) {
+                addCustomerForm.addEventListener('submit', handleAddCustomerForm);
+            }
+            if (closeModal) {
+                closeModal.addEventListener('click', hideAddCustomerModal);
+            }
+            if (cancelAddCustomer) {
+                cancelAddCustomer.addEventListener('click', hideAddCustomerModal);
+            }
+            
+            // Close modal when clicking outside
+            if (addCustomerModal) {
+                addCustomerModal.addEventListener('click', function(e) {
+                    if (e.target === addCustomerModal) {
+                        hideAddCustomerModal();
+                    }
+                });
+            }
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    hideAddCustomerModal();
+                }
+            });
+            
             showAllServicesBtn.addEventListener('click', function() {
                 console.log('=== SHOW ALL SERVICES ===');
                 currentPlatform = null;
@@ -1670,7 +2236,11 @@
             menuItems.forEach(item => {
                 item.addEventListener('click', function() {
                     const section = this.getAttribute('data-section');
-                    handleSectionSelection(section);
+                    if (section === 'logout') {
+                        logout();
+                    } else {
+                        handleSectionSelection(section);
+                    }
                 });
             });
         });
